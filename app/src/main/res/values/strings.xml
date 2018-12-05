@@ -2,4 +2,10 @@
     <string name="app_name">CS125FinalProject</string>
     <string name="edit_message">Convert to ASCII:</string>
     <string name="button_send">Change</string>
+    <string name="button_open_camera">Open Camera</string>
+    <string name="button_save_image">Save Image</string>
+    <string name="button_access_image">Access Images</string>
+    <string name="edit_message_1">Open the camera:</string>
+    <string name="edit_message_2">Save the image produced:</string>
+    <string name="edit_message_3">Access all images produced:</string>
 </resources>

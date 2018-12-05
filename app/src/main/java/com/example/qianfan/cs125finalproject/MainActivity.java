@@ -12,11 +12,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn = (Button) findViewById(R.id.convertASCII);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button btnCI = (Button) findViewById(R.id.convertASCII);
+        btnCI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("CS125FinalProject", "Will convert image to ASCII.");
+            }
+        });
+        Button btnSI = (Button) findViewById(R.id.savePicture);
+        btnSI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("CS125FinalProject", "Will save the converted picture.");
+            }
+        });
+        Button btnOC = (Button) findViewById(R.id.openCamera);
+        btnOC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("CS125FinalProject", "Will open the camera.");
+            }
+        });
+        Button btnAI = (Button) findViewById(R.id.accessImages);
+        btnAI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("CS125FinalProject", "Will access saved images.");
             }
         });
     }
