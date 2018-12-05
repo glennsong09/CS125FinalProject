@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CS125FinalProject</string>
+    <string name="edit_message">Convert to ASCII:</string>
+    <string name="button_send">Change</string>
 </resources>
