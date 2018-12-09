@@ -1,12 +1,15 @@
 package com.example.qianfan.cs125finalproject;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,5 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("CS125FinalProject", "Will access saved images.");
             }
         });
+    }
+
+    public Context getContext() {
+        return MainActivity.this;
     }
 }
