@@ -13,6 +13,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,18 +25,31 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_PIC_REQUEST = 1888;
+
+    public ImageView getImageViewer() {
+        return imageViewer;
+    }
+
     ImageView imageViewer;
+
+    public TextView getTextView() {
+        return textView;
+    }
+
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final ImageTransform transform = new ImageTransform(this);
 
         Button btnCI = (Button) findViewById(R.id.convertASCII);
         btnCI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("CS125FinalProject", "Will convert image to ASCII.");
+                transform.convert();
             }
         });
 
@@ -66,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnOC = (Button) findViewById(R.id.openCamera);
         imageViewer = (ImageView) findViewById(R.id.imageView01);
+        textView = (TextView) findViewById(R.id.textView);
 
         Button btnAI = (Button) findViewById(R.id.accessImages);
         btnAI.setOnClickListener(new View.OnClickListener() {
