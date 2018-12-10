@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("CS125FinalProject", "Will convert image to ASCII.");
                 transform.convert();
+                imageViewer.setImageResource(android.R.color.transparent);
             }
         });
 
