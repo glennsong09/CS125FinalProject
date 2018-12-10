@@ -70,9 +70,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="352dp"
-        android:layout_height="451dp"
-        android:text="TextView"
+        android:layout_width="354dp"
+        android:layout_height="455dp"
+        android:text=" "
         app:layout_constraintStart_toStartOf="@+id/imageView01"
         app:layout_constraintTop_toTopOf="@+id/imageView01" />
 
