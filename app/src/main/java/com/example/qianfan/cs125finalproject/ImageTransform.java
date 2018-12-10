@@ -1,3 +1,4 @@
+/*
 package com.example.qianfan.cs125finalproject;
 
 import android.graphics.Bitmap;
@@ -37,3 +38,4 @@ public class ImageTransform {
     }
 
 }
+*/
