@@ -68,4 +68,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/colorPrimaryDark" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="352dp"
+        android:layout_height="451dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/imageView01"
+        app:layout_constraintTop_toTopOf="@+id/imageView01" />
+
 </android.support.constraint.ConstraintLayout>
