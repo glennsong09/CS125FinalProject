@@ -13,8 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -45,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("CS125FinalProject", "Will save the converted picture.");
                 BitmapDrawable drawable = (BitmapDrawable) imageViewer.getDrawable();
                 Bitmap bitmap = drawable.getBitmap();
+                /**
                 File sdCardDirectory = Environment.getExternalStorageDirectory();
                 File image = new File(sdCardDirectory, "download.png");
+                */
+                File image = new File(v.getContext().getExternalCacheDir(),"test.png");
                 boolean success = false;
                 FileOutputStream outStream;
                 try {
