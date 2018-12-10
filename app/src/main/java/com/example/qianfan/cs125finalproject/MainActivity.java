@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,14 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-
-
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CAPTURE_IMAGE = 100;
-
+    private static final int CAMERA_PIC_REQUEST = 1888;
+    ImageView imageViewer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("CS125FinalProject", "Will convert image to ASCII.");
             }
         });
+
         Button btnSI = (Button) findViewById(R.id.savePicture);
         btnSI.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,26 +39,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnOC = (Button) findViewById(R.id.openCamera);
-        btnOC.setOnClickListener(new View.OnClickListener() {
+        imageViewer = (ImageView) findViewById(R.id.imageView01);
+
+
+        /**
+        Button btnOC = (Button) findViewById(R.id.openCamera);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView01);
+               btnOC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("CS125FinalProject", "Will open the camera.");
-                Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (pictureIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(pictureIntent,
-                            REQUEST_CAPTURE_IMAGE);
-                }
-            }
-            protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-                if (requestCode == REQUEST_CAPTURE_IMAGE &&
-                        resultCode == RESULT_OK) {
-                    if (data != null && data.getExtras() != null) {
-                        Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-                        ImageView.setImageBitmap(imageBitmap);
-                    }
-                }
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent,CAMERA_PIC_REQUEST);
             }
         });
+         **/
 
         Button btnAI = (Button) findViewById(R.id.accessImages);
         btnAI.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +62,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("CS125FinalProject", "Will access saved images.");
             }
         });
+    }
+
+    public void OpenCamera(View view) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, CAMERA_PIC_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_PIC_REQUEST) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            imageViewer.setImageBitmap(bitmap);
+        }
     }
 
     public Context getContext() {
