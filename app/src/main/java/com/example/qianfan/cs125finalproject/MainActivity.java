@@ -13,9 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,25 +23,16 @@ public class MainActivity extends AppCompatActivity {
     private static final int CAMERA_PIC_REQUEST = 1888;
     ImageView imageViewer;
 
-    public TextView getTextView() {
-        return textViewer;
-    }
-
-    TextView textViewer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final ImageTransform transform = new ImageTransform(this);
 
         Button btnCI = (Button) findViewById(R.id.convertASCII);
         btnCI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i("CS125FinalProject", "Will convert image to ASCII.");
-                transform.convert();
             }
         });
 
@@ -55,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("CS125FinalProject", "Will save the converted picture.");
                 BitmapDrawable drawable = (BitmapDrawable) imageViewer.getDrawable();
                 Bitmap bitmap = drawable.getBitmap();
+                /**
                 File sdCardDirectory = Environment.getExternalStorageDirectory();
                 File image = new File(sdCardDirectory, "download.png");
+                */
+                File image = new File(v.getContext().getExternalCacheDir(),"test.png");
                 boolean success = false;
                 FileOutputStream outStream;
                 try {
@@ -75,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnOC = (Button) findViewById(R.id.openCamera);
         imageViewer = (ImageView) findViewById(R.id.imageView01);
-
-        textViewer = (TextView) findViewById(R.id.textView);
 
         Button btnAI = (Button) findViewById(R.id.accessImages);
         btnAI.setOnClickListener(new View.OnClickListener() {
@@ -104,10 +93,4 @@ public class MainActivity extends AppCompatActivity {
     public Context getContext() {
         return MainActivity.this;
     }
-
-    public ImageView getImageViewer() {
-        return imageViewer;
-    }
-
-
 }
