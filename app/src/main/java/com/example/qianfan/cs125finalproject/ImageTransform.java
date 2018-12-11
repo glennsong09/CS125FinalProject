@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.text.Spannable;
+import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.bachors.img2ascii.Img2Ascii;
@@ -24,7 +26,7 @@ public class ImageTransform {
         new Img2Ascii()
                 .bitmap(bm)
                 .quality(1) // 1 - 5
-                .color(true)
+                .color(false)
                 .convert(new Img2Ascii.Listener() {
                     @Override
                     public void onProgress(int percentage) {
@@ -33,7 +35,9 @@ public class ImageTransform {
 
                     @Override
                     public void onResponse(Spannable text) {
+                        text.setSpan(new RelativeSizeSpan(0.11f), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         activity.getTextView().setText(text);
+                        Log.i("CS125FinalProject", text.toString());
                     }
                 });
     }
