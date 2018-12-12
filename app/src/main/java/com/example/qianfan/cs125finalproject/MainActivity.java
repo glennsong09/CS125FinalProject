@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == CAMERA_PIC_REQUEST) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             imageViewer.setImageBitmap(bitmap);
+            textView.setText("");
         }
     }
 
