@@ -33,8 +33,12 @@ public class ImageTransform {
 
                     @Override
                     public void onResponse(Spannable text) {
+
                         text.setSpan(new ScaleXSpan(2f), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        //pixel 2 or xl
                         text.setSpan(new RelativeSizeSpan(0.2f), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        //s8+
+                        //text.setSpan(new RelativeSizeSpan(0.11f), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         text.setSpan(new TypefaceSpan("monospace"), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         activity.getTextView().setText(text);
                         Log.i("CS125FinalProject", text.toString());
