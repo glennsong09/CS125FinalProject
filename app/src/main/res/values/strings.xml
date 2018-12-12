@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CS125FinalProject</string>
+    <string name="app_name">ASCIIFY</string>
     <string name="edit_message">Convert to ASCII:</string>
     <string name="button_send">Change</string>
     <string name="button_open_camera">Open Camera</string>
